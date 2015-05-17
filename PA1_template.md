@@ -21,7 +21,10 @@ data$date <- as.Date(data$date, "%Y-%m-%d")
 ```r
 daily_steps <- aggregate(steps ~ date, data, sum)
 
-hist(daily_steps$steps, col="red", main="Histogram of the Total Steps taken each Day", xlab="No. of Steps Per Day")
+hist(daily_steps$steps, 
+     col="red", 
+     main="Histogram of the Total Steps taken each Day", 
+     xlab="No. of Steps Per Day")
 ```
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
@@ -74,8 +77,17 @@ for (i in which(is.na(imputed_data$steps), arr.ind = TRUE)) {
 
 imputed_daily_steps <- aggregate(steps ~ date, imputed_data, sum)
 
-hist(imputed_daily_steps$steps, col="blue", main="Histogram of the Total Steps taken each Day", xlab="No. of Steps Per Day")
-hist(daily_steps$steps, col="red", main="Histogram of the Total Steps taken each Day", xlab="No. of Steps Per Day", add=T)
+hist(imputed_daily_steps$steps, 
+     col="blue", 
+     main="Histogram of the Total Steps taken each Day", 
+     xlab="No. of Steps Per Day")
+
+hist(daily_steps$steps, 
+     col="red", 
+     main="Histogram of the Total Steps taken each Day", 
+     xlab="No. of Steps Per Day", 
+     add=T)
+
 legend("topright", c("Imputed", "Non-imputed"), col=c("blue", "red"), lwd=10)
 ```
 

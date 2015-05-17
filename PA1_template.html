@@ -214,7 +214,10 @@ data$date &lt;- as.Date(data$date, &quot;%Y-%m-%d&quot;)
 
 <pre><code class="r">daily_steps &lt;- aggregate(steps ~ date, data, sum)
 
-hist(daily_steps$steps, col=&quot;red&quot;, main=&quot;Histogram of the Total Steps taken each Day&quot;, xlab=&quot;No. of Steps Per Day&quot;)
+hist(daily_steps$steps, 
+     col=&quot;red&quot;, 
+     main=&quot;Histogram of the Total Steps taken each Day&quot;, 
+     xlab=&quot;No. of Steps Per Day&quot;)
 </code></pre>
 
 <p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-2"/> </p>
@@ -270,8 +273,17 @@ for (i in which(is.na(imputed_data$steps), arr.ind = TRUE)) {
 
 imputed_daily_steps &lt;- aggregate(steps ~ date, imputed_data, sum)
 
-hist(imputed_daily_steps$steps, col=&quot;blue&quot;, main=&quot;Histogram of the Total Steps taken each Day&quot;, xlab=&quot;No. of Steps Per Day&quot;)
-hist(daily_steps$steps, col=&quot;red&quot;, main=&quot;Histogram of the Total Steps taken each Day&quot;, xlab=&quot;No. of Steps Per Day&quot;, add=T)
+hist(imputed_daily_steps$steps, 
+     col=&quot;blue&quot;, 
+     main=&quot;Histogram of the Total Steps taken each Day&quot;, 
+     xlab=&quot;No. of Steps Per Day&quot;)
+
+hist(daily_steps$steps, 
+     col=&quot;red&quot;, 
+     main=&quot;Histogram of the Total Steps taken each Day&quot;, 
+     xlab=&quot;No. of Steps Per Day&quot;, 
+     add=T)
+
 legend(&quot;topright&quot;, c(&quot;Imputed&quot;, &quot;Non-imputed&quot;), col=c(&quot;blue&quot;, &quot;red&quot;), lwd=10)
 </code></pre>
 
